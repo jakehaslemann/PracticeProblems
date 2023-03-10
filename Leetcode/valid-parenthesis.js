@@ -57,3 +57,16 @@ var opposite = (z) => {
 // this returns the opposite of "(,[,{" as "),],}" respectively.
 console.log(isValid("))"));
 console.log(opposite(")"));
+
+
+var isValid = function(s) {
+  let par = "";
+  for (i=0; i< s.length; i++) {
+  if ( par[par.length -1] ==="(" && s[i] ===")") {par = par.substring(0, par.length-1)}
+  else if ( par[par.length -1] ==="{" && s[i] ==="}") {par = par.substring(0, par.length-1)}
+  else if ( par[par.length -1] ==="[" && s[i] ==="]") {par = par.substring(0, par.length-1)}
+  else { par = par + s[i]}
+  }
+  if (par.length === 0) return true;
+  return false;
+};
